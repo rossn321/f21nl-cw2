@@ -1,6 +1,6 @@
 from enum import Enum
 from pathlib import Path
-from typing import Literal, NamedTuple
+from typing import Literal, NamedTuple, Union
 
 import torch
 
@@ -15,8 +15,8 @@ class ModelInstance(NamedTuple):
 
     source_tokens: torch.Tensor
     source_attention_mask: torch.Tensor
-    target_tokens: torch.Tensor | None = None
-    target_attention_mask: torch.Tensor | None = None
+    target_tokens: Union[torch.Tensor, None] = None
+    target_attention_mask: Union[torch.Tensor, None] = None
 
 
 CellType = Literal["gru", "lstm"]
